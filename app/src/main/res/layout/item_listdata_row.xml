@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/listview_padding">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/ListTitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Title" />
+
+    <RelativeLayout
+        android:id="@+id/rlListview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin">
+
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/ListDescriptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="@dimen/listitem_margin"
+            android:layout_toLeftOf="@+id/ivImage"
+            tools:text="Description" />
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/imageview_dimension"
+            android:layout_height="@dimen/imageview_dimension"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_launcher" />
+    </RelativeLayout>
+
+</LinearLayout>
