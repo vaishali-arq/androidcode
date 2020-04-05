@@ -20,14 +20,22 @@ class MainActivity : AppCompatActivity() {
 
         observeViewModel()
         initUI()
-
-        mainViewModel.callWebservice()
+        callWebservice()
     }
 
     private fun initUI() {
+        srlPulltoRefresh.setOnRefreshListener {
+            callWebservice()
+            srlPulltoRefresh.isRefreshing = false
+        }
+
         rvDataList.layoutManager = LinearLayoutManager(this)
         adapter = DataListAdapter(this)
         rvDataList.adapter = adapter
+    }
+
+    private fun callWebservice() {
+        mainViewModel.callWebservice()
     }
 
     private fun observeViewModel() {
