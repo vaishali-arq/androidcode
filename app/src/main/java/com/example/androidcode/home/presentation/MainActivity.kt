@@ -1,6 +1,7 @@
 package com.example.androidcode.home.presentation
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val mainViewModel = MainViewModel()
+    val mainViewModel = MainViewModel(this)
     lateinit var adapter: DataListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,10 +40,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        mainViewModel.listResult.observe(this, Observer {
-            if (it.success != null) {
-                supportActionBar?.title = it.success.title
-                updateListData(it.success.listRow)
+        mainViewModel.listResult.observe(this@MainActivity, Observer {
+            val loginResult = it ?: return@Observer
+
+            if (loginResult.errorMsg != null) {
+                var errorMessage =
+                    loginResult.errorMsg ?: getString(R.string.error_something_went_wrong)
+                Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+            }
+
+            if (loginResult.success != null) {
+                supportActionBar?.title = loginResult.success.title
+                updateListData(loginResult.success.listRow)
             }
         })
     }

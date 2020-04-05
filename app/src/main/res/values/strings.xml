@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidCode</string>
+    <string name="error_no_internet_connection_message">Please check your internet connection and try again.</string>
+    <string name="error_something_went_wrong">Something went wrong. Please try again.</string>
 </resources>
