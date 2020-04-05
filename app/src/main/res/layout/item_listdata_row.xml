@@ -33,8 +33,7 @@
             android:id="@+id/ivImage"
             android:layout_width="@dimen/imageview_dimension"
             android:layout_height="@dimen/imageview_dimension"
-            android:layout_alignParentRight="true"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
 </LinearLayout>
