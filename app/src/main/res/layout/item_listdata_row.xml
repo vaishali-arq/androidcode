@@ -1,39 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="@dimen/listview_padding">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        style="@style/ListTitleStyle"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/llDataLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Title" />
-
-    <RelativeLayout
-        android:id="@+id/rlListview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vertical_margin">
+        android:layout_weight="1"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/ivArrow"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvDescription"
-            style="@style/ListDescriptionStyle"
+            android:id="@+id/tvTitle"
+            style="@style/ListTitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginRight="@dimen/listitem_margin"
-            android:layout_toLeftOf="@+id/ivImage"
-            tools:text="Description" />
+            tools:text="Title" />
 
-        <ImageView
-            android:id="@+id/ivImage"
-            android:layout_width="@dimen/imageview_dimension"
-            android:layout_height="@dimen/imageview_dimension"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rlListview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin">
+
+            <TextView
+                android:id="@+id/tvDescription"
+                style="@style/ListDescriptionStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/ivImage"
+                tools:text="Description" />
+
+            <ImageView
+                android:id="@+id/ivImage"
+                android:layout_width="@dimen/imageview_dimension"
+                android:layout_height="@dimen/imageview_dimension"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_launcher" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_point_to_right"
+        android:tint="@color/colorGray"
+        android:layout_marginLeft="@dimen/listitem_margin"
+       android:layout_gravity="center_vertical" />
 
 </LinearLayout>
