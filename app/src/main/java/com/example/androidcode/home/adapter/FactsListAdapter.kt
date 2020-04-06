@@ -14,9 +14,9 @@ import com.example.androidcode.home.domain.data.ListRow
 import kotlinx.android.synthetic.main.item_listdata_row.view.*
 
 /**
- * DataListAdapter is adapter class to populate list data
+ * FactsListAdapter is adapter class to populate list data
  */
-class DataListAdapter constructor(cxt: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FactsListAdapter constructor(cxt: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var listData: MutableList<ListRow> = mutableListOf()
     var context = cxt

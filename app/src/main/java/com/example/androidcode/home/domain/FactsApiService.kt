@@ -4,9 +4,9 @@ import com.example.androidcode.home.domain.data.ListResponse
 import retrofit2.http.GET
 
 /**
- * ListApiService is API interface for retrofit call
+ * FactsApiService is API interface for retrofit call
  */
-interface ListApiService {
+interface FactsApiService {
     @GET("facts.json")
-    suspend fun getListData(): ListResponse
+    suspend fun getFacts(): ListResponse
 }

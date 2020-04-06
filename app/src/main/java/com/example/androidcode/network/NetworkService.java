@@ -1,15 +1,15 @@
 package com.example.androidcode.network;
 
 import com.example.androidcode.config.APIConstant;
-import com.example.androidcode.home.domain.ListApiService;
+import com.example.androidcode.home.domain.FactsApiService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * RetrofitService class will have method to create retrofit instance
+ * NetworkService class will have method to create retrofit instance
  */
-public class RetrofitService {
+public class NetworkService {
 
     private Retrofit mRetrofit;
 
@@ -18,7 +18,7 @@ public class RetrofitService {
      *
      * @return API Interface
      */
-    public ListApiService getAPIInterface() {
+    public FactsApiService getAPIInterface() {
         if (mRetrofit == null) {
             mRetrofit = new Retrofit
                     .Builder()
@@ -27,6 +27,6 @@ public class RetrofitService {
                     .build();
         }
 
-        return mRetrofit.create(ListApiService.class);
+        return mRetrofit.create(FactsApiService.class);
     }
 }

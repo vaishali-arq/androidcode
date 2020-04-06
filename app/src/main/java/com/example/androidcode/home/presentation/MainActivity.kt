@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidcode.R
-import com.example.androidcode.home.adapter.DataListAdapter
+import com.example.androidcode.home.adapter.FactsListAdapter
 import com.example.androidcode.home.domain.data.ListRow
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     val mainViewModel = MainViewModel(this)
-    lateinit var adapter: DataListAdapter
+    lateinit var adapter: FactsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         rvDataList.layoutManager = LinearLayoutManager(this)
-        adapter = DataListAdapter(this)
+        adapter = FactsListAdapter(this)
         rvDataList.adapter = adapter
     }
 

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.androidcode.R
-import com.example.androidcode.home.domain.ListDataUserCase
+import com.example.androidcode.home.domain.FactsUseCase
 import com.example.androidcode.home.domain.data.ResultWrapper
 import com.example.androidcode.home.presentation.data.ListResultView
 import kotlinx.coroutines.launch
@@ -21,12 +21,12 @@ class MainViewModel constructor(val context: Context) : ViewModel() {
     val listResult = MutableLiveData<ListResultView>()
     val progressState = MutableLiveData<Boolean>()
 
-    val listDataUserCase = ListDataUserCase()
+    val factsUseCase = FactsUseCase()
 
     fun callWebservice() {
         progressState.value = true
         viewModelScope.launch {
-            val response = listDataUserCase.callWebservice()
+            val response = factsUseCase.callWebservice()
             progressState.value = false
             when (response) {
                 is ResultWrapper.Success -> listResult.value =
