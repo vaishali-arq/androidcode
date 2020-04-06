@@ -26,7 +26,7 @@ class MainViewModel constructor(val context: Context) : ViewModel() {
     fun callWebservice() {
         progressState.value = true
         viewModelScope.launch {
-            val response = factsUseCase.callWebservice()
+            val response = factsUseCase.getListData()
             progressState.value = false
             when (response) {
                 is ResultWrapper.Success -> listResult.value =

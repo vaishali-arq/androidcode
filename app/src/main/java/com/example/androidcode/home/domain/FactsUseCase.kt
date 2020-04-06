@@ -5,6 +5,5 @@ import com.example.androidcode.home.domain.data.ResultWrapper
 
 class FactsUseCase {
     private val factsRepository: FactsRepository = FactsRepositoryImpl()
-
-    suspend fun callWebservice(): ResultWrapper<ListResponse> = factsRepository.getListData()
+    suspend fun getListData(): ResultWrapper<ListResponse> = factsRepository.getListData()
 }
