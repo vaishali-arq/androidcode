@@ -40,7 +40,7 @@ class FactsListAdapter constructor(cxt: Context) : RecyclerView.Adapter<Recycler
         private val txtTitle: TextView = view.tvTitle
         private val txtDescription: TextView = view.tvDescription
         private val imgImage: ImageView = view.ivImage
-
+        private val imgArrow: ImageView = view.ivArrow
 
         fun initViews(context: Context, data: ListRow) {
             txtTitle.visibility = View.GONE
@@ -49,11 +49,13 @@ class FactsListAdapter constructor(cxt: Context) : RecyclerView.Adapter<Recycler
 
             data.title?.let {
                 txtTitle.visibility = View.VISIBLE
+                imgArrow.visibility = View.VISIBLE
                 txtTitle.text = data.title
             }
 
             data.description?.let {
                 txtDescription.visibility = View.VISIBLE
+                imgArrow.visibility = View.VISIBLE
                 txtDescription.text = data.description
             }
 
@@ -61,6 +63,7 @@ class FactsListAdapter constructor(cxt: Context) : RecyclerView.Adapter<Recycler
 
             data.imageHref?.let {
                 imgImage.visibility = View.VISIBLE
+                imgArrow.visibility = View.VISIBLE
                 var imageUrl = data.imageHref
 
                 if (data.imageHref.startsWith("http")) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,56 +7,60 @@
     android:orientation="horizontal"
     android:padding="@dimen/listview_padding">
 
-    <LinearLayout
-        android:id="@+id/llDataLayout"
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/ListTitleStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rlListview"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/ivArrow"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Title" />
+
+    <RelativeLayout
+        android:id="@+id/rlListview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+        app:layout_constraintRight_toLeftOf="@+id/ivArrow"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvTitle"
-            style="@style/ListTitleStyle"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvDescription"
+            style="@style/ListDescriptionStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Title" />
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="@dimen/listview_padding"
+            android:layout_toLeftOf="@+id/ivImage"
+            android:singleLine="false"
+            tools:text="Description" />
 
-        <RelativeLayout
-            android:id="@+id/rlListview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/vertical_margin">
-
-            <TextView
-                android:id="@+id/tvDescription"
-                style="@style/ListDescriptionStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/ivImage"
-                tools:text="Description" />
-
-            <ImageView
-                android:id="@+id/ivImage"
-                android:layout_width="@dimen/imageview_dimension"
-                android:layout_height="@dimen/imageview_dimension"
-                android:layout_alignParentRight="true"
-                android:scaleType="fitXY"
-                android:src="@mipmap/ic_launcher" />
-        </RelativeLayout>
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/imageview_dimension"
+            android:layout_height="@dimen/imageview_dimension"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/ivArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/listitem_margin"
         android:src="@drawable/ic_arrow_point_to_right"
         android:tint="@color/colorGray"
-        android:layout_marginLeft="@dimen/listitem_margin"
-       android:layout_gravity="center_vertical" />
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tvTitle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
