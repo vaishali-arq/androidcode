@@ -39,8 +39,19 @@ class DataListAdapter constructor(cxt: Context) : RecyclerView.Adapter<RecyclerV
 
 
         fun initViews(context: Context, data: ListRow) {
-            txtTitle.text = data.title
-            txtDescription.text = data.description
+            txtTitle.visibility = View.GONE
+            txtDescription.visibility = View.GONE
+            imgImage.visibility = View.GONE
+
+            data.title?.let {
+                txtTitle.visibility = View.VISIBLE
+                txtTitle.text = data.title
+            }
+
+            data.description?.let {
+                txtDescription.visibility = View.VISIBLE
+                txtDescription.text = data.description
+            }
 
             imgImage.setImageBitmap(null)
 
@@ -57,7 +68,6 @@ class DataListAdapter constructor(cxt: Context) : RecyclerView.Adapter<RecyclerV
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .into(imgImage)
             }
-
         }
     }
 }

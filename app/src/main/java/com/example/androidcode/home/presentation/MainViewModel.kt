@@ -14,12 +14,15 @@ class MainViewModel constructor(val context: Context) : ViewModel() {
 
     var activityContext = this.context
     val listResult = MutableLiveData<ListResultView>()
+    val progressState = MutableLiveData<Boolean>()
 
     val listDataUserCase = ListDataUserCase()
 
     fun callWebservice() {
+        progressState.value = true
         viewModelScope.launch {
             val response = listDataUserCase.callWebservice()
+            progressState.value = false
             when (response) {
                 is ResultWrapper.Success -> listResult.value =
                     ListResultView(success = response.value)

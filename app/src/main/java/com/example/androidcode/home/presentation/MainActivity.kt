@@ -1,6 +1,8 @@
 package com.example.androidcode.home.presentation
 
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -40,6 +42,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
+        mainViewModel.progressState.observe(this, Observer { inProgress ->
+            if (inProgress) {
+                pbLoading.visibility = VISIBLE
+            } else {
+                pbLoading.visibility = GONE
+            }
+        })
+
         mainViewModel.listResult.observe(this@MainActivity, Observer {
             val loginResult = it ?: return@Observer
 
