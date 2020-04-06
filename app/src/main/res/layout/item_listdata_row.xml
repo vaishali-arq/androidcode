@@ -12,42 +12,35 @@
         style="@style/ListTitleStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/rlListview"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/ivArrow"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Title" />
 
-    <RelativeLayout
-        android:id="@+id/rlListview"
+    <TextView
+        android:id="@+id/tvDescription"
+        style="@style/ListDescriptionStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/vertical_margin"
+        android:layout_marginRight="@dimen/vertical_margin"
+        app:layout_constraintEnd_toStartOf="@+id/ivImage"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        tools:text="Description" />
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="@dimen/imageview_dimension"
+        android:layout_height="@dimen/imageview_dimension"
+        android:layout_marginLeft="@dimen/vertical_margin"
+        android:layout_marginTop="@dimen/vertical_margin"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/tvTitle"
         app:layout_constraintRight_toLeftOf="@+id/ivArrow"
-        app:layout_constraintStart_toStartOf="@+id/tvTitle"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tvDescription"
-            style="@style/ListDescriptionStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginRight="@dimen/listview_padding"
-            android:layout_toLeftOf="@+id/ivImage"
-            android:singleLine="false"
-            tools:text="Description" />
-
-        <ImageView
-            android:id="@+id/ivImage"
-            android:layout_width="@dimen/imageview_dimension"
-            android:layout_height="@dimen/imageview_dimension"
-            android:layout_alignParentRight="true"
-            android:scaleType="fitXY"
-            android:src="@mipmap/ic_launcher" />
-    </RelativeLayout>
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <ImageView
         android:id="@+id/ivArrow"
