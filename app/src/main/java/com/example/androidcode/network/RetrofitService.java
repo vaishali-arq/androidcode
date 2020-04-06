@@ -7,8 +7,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by vaishali_s.
- * <p>
  * RetrofitService class will have method to create retrofit instance
  */
 public class RetrofitService {

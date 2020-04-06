@@ -13,13 +13,17 @@ import com.example.androidcode.R
 import com.example.androidcode.home.domain.data.ListRow
 import kotlinx.android.synthetic.main.item_listdata_row.view.*
 
+/**
+ * DataListAdapter is adapter class to populate list data
+ */
 class DataListAdapter constructor(cxt: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var listData: MutableList<ListRow> = mutableListOf()
     var context = cxt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListDataViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_listdata_row, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_listdata_row, parent, false)
         return ListDataViewHolder(view)
     }
 
@@ -63,6 +67,7 @@ class DataListAdapter constructor(cxt: Context) : RecyclerView.Adapter<RecyclerV
                     imageUrl = data.imageHref.replace("http", "https")
                 }
 
+                //Glide library is used to load image from url
                 Glide.with(context)
                     .load(imageUrl)
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)

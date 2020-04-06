@@ -12,6 +12,9 @@ import com.example.androidcode.home.adapter.DataListAdapter
 import com.example.androidcode.home.domain.data.ListRow
 import kotlinx.android.synthetic.main.activity_main.*
 
+/**
+ * MainActivity is activity class to call webservice and update UI
+ */
 class MainActivity : AppCompatActivity() {
 
     val mainViewModel = MainViewModel(this)

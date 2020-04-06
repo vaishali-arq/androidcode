@@ -5,6 +5,9 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
 
+/**
+ * ResultWrapper is used to parse response for success or error
+ */
 sealed class ResultWrapper<out T> {
     data class Success<out T>(val value: T) : ResultWrapper<T>()
     data class GenericError(val code: Int? = null, val errorMessage: String? = null) :
