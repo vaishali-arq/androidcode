@@ -10,17 +10,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidcode.R
 import com.example.androidcode.home.adapter.FactsListAdapter
 import com.example.androidcode.home.domain.data.ListRow
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 /**
  * MainActivity is activity class to call webservice and update UI
  */
 class MainActivity : AppCompatActivity() {
 
-    val mainViewModel = MainViewModel(this)
+    @Inject
+    lateinit var mainViewModel : MainViewModel
+
     lateinit var adapter: FactsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

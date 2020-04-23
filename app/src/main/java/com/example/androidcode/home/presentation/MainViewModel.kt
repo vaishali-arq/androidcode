@@ -9,19 +9,21 @@ import com.example.androidcode.home.domain.FactsUseCase
 import com.example.androidcode.home.domain.data.ResultWrapper
 import com.example.androidcode.home.presentation.data.ListResultView
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  *
  * MainViewModel is ViewModel class to handle webservice calls and logic
  * It uses MutableLiveData which is observed in activity
  */
-class MainViewModel constructor(val context: Context) : ViewModel() {
+class MainViewModel @Inject constructor(
+    private val context: Context,
+    private val factsUseCase: FactsUseCase
+) : ViewModel() {
 
     var activityContext = this.context
     val listResult = MutableLiveData<ListResultView>()
     val progressState = MutableLiveData<Boolean>()
-
-    val factsUseCase = FactsUseCase()
 
     fun callWebservice() {
         progressState.value = true
